@@ -5,6 +5,7 @@ import { AppComponent } from "./app.component";
 import { AlbumsListComponent} from "./albums-list.component";
 import { TaskListComponent } from "./task-list.component";
 import { EditTaskComponent } from "./edit-task.component";
+import { NewTaskComponent } from "./new-task.component";
 
 @NgModule({
   imports: [
@@ -16,6 +17,7 @@ import { EditTaskComponent } from "./edit-task.component";
     AlbumsListComponent,
     TaskListComponent,
     EditTaskComponent,
+    NewTaskComponent,
   ],
   bootstrap: [AppComponent]
 })
