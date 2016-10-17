@@ -1,7 +1,7 @@
 import { Component } from "@angular/core";
 
 @Component({
-  selector: "albums";
+  selector: "albums",
   template: `
   <h3>Here are my favorite albums!</h3>
   <div *ngFor="let currentAlbum of favoriteAlbums">

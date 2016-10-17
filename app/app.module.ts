@@ -1,8 +1,10 @@
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 import { FormsModule } from "@angular/forms";
-import { AlbumsListComponent} from "./albums-list.component";
 import { AppComponent } from "./app.component";
+import { AlbumsListComponent} from "./albums-list.component";
+import { TaskListComponent } from "./task-list.component";
+import { EditTaskComponent } from "./edit-task.component";
 
 @NgModule({
   imports: [
@@ -10,8 +12,10 @@ import { AppComponent } from "./app.component";
     FormsModule
   ],
   declarations: [
+    AppComponent,
     AlbumsListComponent,
-    AppComponent
+    TaskListComponent,
+    EditTaskComponent,
   ],
   bootstrap: [AppComponent]
 })
