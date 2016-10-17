@@ -6,11 +6,18 @@ import { Task } from "./task.model";
     inputs: ["task"],
   template: `
   <div>
-    <input *ngIf="task.done === true" type="checkbox" checked (click)="toggleDone(false)"/>
-    <input *ngIf="task.done === false" type="checkbox" (click)="toggleDone(true)"/>
     <label>{{ task.description }}</label>
+    <br>
+    <label *ngIf="task.done === true">
+      <input type="checkbox" checked (click)="toggleDone(false)"/> Completed
+    </label>
+    <label *ngIf="task.done === false">
+      <input type="checkbox" (click)="toggleDone(true)"/> Completed
+    </label>
+    <p>Priority: {{ task.priority }}</p>
+    <p>Category: {{ task.category }}</p>
   </div>
-    `
+  `
 })
 export class TaskComponent {
   public task: Task;

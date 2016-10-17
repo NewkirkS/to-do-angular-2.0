@@ -1,5 +1,5 @@
 h1 {
-  color: blue;
+  color: pink;
   text-align: center;
 }
 
@@ -13,4 +13,11 @@ input {
 
 .filter {
   margin: 5% 0;
+}
+
+.tasks {
+  margin: 5% 0;
+  padding: 2%;
+  border: solid black 3px;
+  border-radius: 1em;
 }

@@ -10,7 +10,7 @@ import { CompletenessPipe } from "./completeness.pipe";
       <option value="isDone">Show Done</option>
       <option value="notDone" selected="selected">Show Not Done</option>
     </select>
-    <div *ngFor="let currentTask of childTaskList | completeness:selectedCompleteness">
+    <div *ngFor="let currentTask of childTaskList | completeness:selectedCompleteness" class="tasks">
       <task-display
         [task] = "currentTask"
       ></task-display>

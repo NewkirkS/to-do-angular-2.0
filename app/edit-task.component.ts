@@ -7,12 +7,20 @@ import { Task } from "./task.model";
   <div *ngIf="childSelectedTask">
     <h2>Edit Task:</h2>
     <div>
-      <label>Description: </label>
+      <label hidden>Description: </label>
       <input [(ngModel)]="childSelectedTask.description" class="form-control">
     </div>
     <div>
-      <label>Enter Task ID:</label>
+      <label hidden>Enter Task ID:</label>
       <input [(ngModel)]="childSelectedTask.id" class="form-control">
+    </div>
+    <div>
+      <label hidden>Enter Priority:</label>
+      <input [(ngModel)]="childSelectedTask.priority" class="form-control">
+    </div>
+    <div>
+      <label hidden>Enter Category:</label>
+      <input [(ngModel)]="childSelectedTask.category" class="form-control">
       <button (click)="doneClicked()" class="btn btn-success">Done</button>
     </div>
   </div>
