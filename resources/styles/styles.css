@@ -10,3 +10,7 @@ label {
 input {
   max-width: 50%;
 }
+
+.filter {
+  margin: 5% 0;
+}
