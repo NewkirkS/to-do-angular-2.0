@@ -2,3 +2,11 @@ h1 {
   color: blue;
   text-align: center;
 }
+
+label {
+  font-size: 1.2em;
+}
+
+input {
+  max-width: 50%;
+}
