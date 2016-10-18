@@ -10,6 +10,8 @@ import { Task } from "./task.model";
       <div class="col-md-12">
         <h1>My First Angular 2 App</h1>
       </div>
+      <div>
+      </div>
       <div class="col-md-6">
         <task-list
           [childTaskList]="masterTaskList"
@@ -19,7 +21,17 @@ import { Task } from "./task.model";
       <div class="col-md-5 col-md-offset-1">
         <new-task
           (newTaskSender)="addTask($event)"
+          [childCategoryList]="categories"
         ></new-task>
+        <edit-task
+          [childSelectedTask]="selectedTask"
+          (doneClickedSender)="finishedEditing()"
+        ></edit-task>
+      </div>
+      <div class="col-md-5 col-md-offset-1">
+        <new-category
+          (newCategorySender)="addCategory($event)"
+        ></new-category>
         <edit-task
           [childSelectedTask]="selectedTask"
           (doneClickedSender)="finishedEditing()"
@@ -37,6 +49,7 @@ export class AppComponent {
     new Task("Learn calligraphy.", 2, "Low", "Hobby"),
     new Task("Clean fridge.", 3, "Medium", "Home")
   ];
+  public categories: string[] = ["Home", "Work", "Hobby"];
   selectedTask: Task = null;
   showDetails(clickedTask: Task) {
     this.selectedTask = clickedTask;
@@ -46,5 +59,8 @@ export class AppComponent {
   }
   addTask(newTaskFromChild: Task) {
     this.masterTaskList.push(newTaskFromChild);
+  }
+  addCategory(newCategoryFromChild: string) {
+    this.categories.push(newCategoryFromChild);
   }
 }

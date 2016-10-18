@@ -6,17 +6,24 @@ import { PriorityPipe } from "./priority.pipe";
 @Component({
   selector: "task-list",
   template: `
-    <select (change)="onCompletenessChange($event.target.value)" class="form-control sort-dropdown">
-      <option value="all">Show All</option>
-      <option value="isDone">Show Done</option>
-      <option value="notDone" selected="selected">Show Not Done</option>
-    </select>
-    <select (change)="onPriorityChange($event.target.value)" class="form-control sort-dropdown">
-      <option selected="selected" disabled>Show by Priority</option>
-      <option value="High">High</option>
-      <option value="Medium">Medium</option>
-      <option value="Low">Low</option>
-    </select>
+    <div class="row sort-dropdown">
+      <div class="col-md-4">
+        <select (change)="onCompletenessChange($event.target.value)" class="form-control">
+          <option value="all">Show All</option>
+          <option value="isDone">Show Done</option>
+          <option value="notDone" selected="selected">Show Not Done</option>
+        </select>
+      </div>
+      <div class="col-md-4">
+        <select (change)="onPriorityChange($event.target.value)" class="form-control">
+          <option selected="selected" disabled>Show by Priority</option>
+          <option value="All">All</option>
+          <option value="High">High</option>
+          <option value="Medium">Medium</option>
+          <option value="Low">Low</option>
+        </select>
+      </div>
+    </div>
     <div *ngFor="let currentTask of childTaskList | completeness:selectedCompleteness | priority:selectedPriority" class="tasks">
       <task-display
         [task] = "currentTask"
@@ -39,6 +46,5 @@ export class TaskListComponent {
   }
   onPriorityChange(priorityFromMenu) {
     this.selectedPriority = priorityFromMenu;
-    // console.warn(this.selectedPriority);
   }
 }
