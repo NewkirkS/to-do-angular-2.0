@@ -2,6 +2,7 @@ import { Component } from "@angular/core";
 import { Task } from "./task.model";
 
 @Component({
+  moduleId: module.id,
   selector: "my-app",
   template: `
   <div class="container">

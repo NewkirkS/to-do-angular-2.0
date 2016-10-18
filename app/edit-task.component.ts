@@ -11,16 +11,20 @@ import { Task } from "./task.model";
       <input [(ngModel)]="childSelectedTask.description" class="form-control">
     </div>
     <div>
-      <label hidden>Enter Task ID:</label>
-      <input [(ngModel)]="childSelectedTask.id" class="form-control">
+      <select [(ngModel)]="childSelectedTask.priority" class="form-control task-dropdown">
+        <option disabled>Priority</option>
+        <option value="High">High</option>
+        <option value="Medium">Medium</option>
+        <option value="Low">Low</option>
+      </select>
     </div>
     <div>
-      <label hidden>Enter Priority:</label>
-      <input [(ngModel)]="childSelectedTask.priority" class="form-control">
-    </div>
-    <div>
-      <label hidden>Enter Category:</label>
-      <input [(ngModel)]="childSelectedTask.category" class="form-control">
+      <select [(ngModel)]="childSelectedTask.category" class="form-control task-dropdown">
+        <option disabled>Category</option>
+        <option value="Home">Home</option>
+        <option value="Work">Work</option>
+        <option value="Hobby">Hobby</option>
+      </select>
       <button (click)="doneClicked()" class="btn btn-success">Done</button>
     </div>
   </div>

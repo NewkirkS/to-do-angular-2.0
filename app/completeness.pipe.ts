@@ -7,8 +7,8 @@ import {Task} from "./task.model";
 })
 
 export class CompletenessPipe implements PipeTransform {
-  transform(input: Task[], info) {
-    let desiredCompleteness = info;
+  transform(input: Task[], completeness) {
+    let desiredCompleteness = completeness;
     let output: Task[] = [];
     if (desiredCompleteness === "notDone") {
       for (let i = 0; i < input.length; i++) {

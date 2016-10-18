@@ -10,23 +10,25 @@ import { Task } from "./task.model";
     <input #newDescription placeholder="Task Description" class="form-control">
   </div>
   <div>
-    <label hidden>Enter Task ID:</label>
-    <input #newId placeholder="Task ID" class="form-control">
+    <select #newPriority class="form-control task-dropdown">
+      <option disabled selected>Priority</option>
+      <option value="High">High</option>
+      <option value="Medium">Medium</option>
+      <option value="Low">Low</option>
+    </select>
   </div>
   <div>
-    <label hidden>Select a Priority:</label>
-    <input #newPriority placeholder="Priority" class="form-control">
-  </div>
-  <div>
-    <label hidden>Enter a Category:</label>
-    <input #newCategory placeholder="Category" class="form-control">
+    <select #newCategory class="form-control task-dropdown">
+      <option disabled selected>Category</option>
+      <option value="Home">Home</option>
+      <option value="Work">Work</option>
+      <option value="Hobby">Hobby</option>
+    </select>
   </div>
   <button (click)="
   addClicked(newDescription.value, newId.value, newPriority.value, newCategory.value);
   newDescription.value='';
   newId.value='';
-  newPriority.value='';
-  newCategory.value='';
   " class="btn btn-success">Add</button>
   `
 })
