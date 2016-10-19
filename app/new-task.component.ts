@@ -26,9 +26,8 @@ import { Task } from "./task.model";
     </select>
   </div>
   <button (click)="
-  addClicked(newDescription.value, newId.value, newPriority.value, newCategory.value);
+  addClicked(newDescription.value, newPriority.value, newCategory.value);
   newDescription.value='';
-  newId.value='';
   " class="btn btn-success"
   >Add</button>
   `
@@ -38,9 +37,8 @@ export class NewTaskComponent {
   public selectedCategory: string = "Home";
   @Input() childCategoryList: string[];
   @Output() newTaskSender = new EventEmitter();
-  addClicked(description: string, id: number, priority: string, category: string) {
-    let newTaskToAdd: Task = new Task(description, id, priority, category);
-    console.info(newTaskToAdd);
+  addClicked(description: string, priority: string, category: string) {
+    let newTaskToAdd: Task = new Task(description, priority, category);
     this.newTaskSender.emit(newTaskToAdd);
   }
 }

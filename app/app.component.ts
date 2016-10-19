@@ -16,6 +16,7 @@ import { Task } from "./task.model";
         <task-list
           [childTaskList]="masterTaskList"
           (clickSender)="showDetails($event)"
+          [childCategoryList]="categories"
         ></task-list>
       </div>
       <div class="col-md-5 col-md-offset-1">
@@ -27,15 +28,9 @@ import { Task } from "./task.model";
           [childSelectedTask]="selectedTask"
           (doneClickedSender)="finishedEditing()"
         ></edit-task>
-      </div>
-      <div class="col-md-5 col-md-offset-1">
         <new-category
           (newCategorySender)="addCategory($event)"
         ></new-category>
-        <edit-task
-          [childSelectedTask]="selectedTask"
-          (doneClickedSender)="finishedEditing()"
-        ></edit-task>
       </div>
     </div>
   </div>
@@ -44,10 +39,10 @@ import { Task } from "./task.model";
 
 export class AppComponent {
   public masterTaskList: Task[] = [
-    new Task("Create To-Do List App.", 0, "High", "Home"),
-    new Task("Learn Kung Fu.", 1, "Low", "Work"),
-    new Task("Learn calligraphy.", 2, "Low", "Hobby"),
-    new Task("Clean fridge.", 3, "Medium", "Home")
+    new Task("Create To-Do List App.", "High", "Home"),
+    new Task("Learn Kung Fu.", "Low", "Work"),
+    new Task("Learn calligraphy.", "Low", "Hobby"),
+    new Task("Clean fridge.", "Medium", "Home")
   ];
   public categories: string[] = ["Home", "Work", "Hobby"];
   selectedTask: Task = null;

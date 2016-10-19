@@ -7,9 +7,22 @@ import { Task } from "./task.model";
 })
 
 export class CategoryPipe implements PipeTransform {
-  transform(input: Task[], category) {
-    let desiredCategory = category;
+  transform(input: Task[], desiredCategory, categories) {
     let output: Task[] = [];
-    
+    console.log(categories);
+    if (desiredCategory !== "All") {
+      categories.forEach(function(category) {
+        if (desiredCategory === category) {
+          input.forEach(function(task) {
+            if (task.category === desiredCategory) {
+              output.push(task);
+            }
+          });
+        }
+      });
+      return output;
+    } else {
+      return input;
+    }
   }
 }

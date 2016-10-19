@@ -2,6 +2,7 @@ import { Component, Input, Output, EventEmitter} from "@angular/core";
 import { Task } from "./task.model";
 import { CompletenessPipe } from "./completeness.pipe";
 import { PriorityPipe } from "./priority.pipe";
+import { CategoryPipe } from "./category.pipe";
 
 @Component({
   selector: "task-list",
@@ -23,8 +24,17 @@ import { PriorityPipe } from "./priority.pipe";
           <option value="Low">Low</option>
         </select>
       </div>
+      <div class="col-md-4">
+        <select (change)="onCategoryChange($event.target.value)" class="form-control">
+          <option selected="selected" disabled>Show by Category</option>
+          <option value="All">All</option>
+          <option *ngFor="let currentCategory of childCategoryList" [value]="currentCategory">
+            {{currentCategory}}
+          </option>
+        </select>
+      </div>
     </div>
-    <div *ngFor="let currentTask of childTaskList | completeness:selectedCompleteness | priority:selectedPriority" class="tasks">
+    <div *ngFor="let currentTask of childTaskList | completeness:selectedCompleteness | priority:selectedPriority | category:selectedCategory:childCategoryList" class="tasks">
       <task-display
         [task] = "currentTask"
       ></task-display>
@@ -36,6 +46,8 @@ import { PriorityPipe } from "./priority.pipe";
 export class TaskListComponent {
   public selectedCompleteness: string = "notDone";
   public selectedPriority: string = "";
+  public selectedCategory: string = "All";
+  @Input() childCategoryList: string[];
   @Input() childTaskList: Task[];
   @Output() clickSender = new EventEmitter();
   editButtonHasBeenClicked(taskToEdit: Task) {
@@ -46,5 +58,9 @@ export class TaskListComponent {
   }
   onPriorityChange(priorityFromMenu) {
     this.selectedPriority = priorityFromMenu;
+  }
+  onCategoryChange(categoryFromMenu) {
+    this.selectedCategory = categoryFromMenu;
+    console.log(this.selectedCategory);
   }
 }
